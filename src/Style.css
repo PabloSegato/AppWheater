@@ -1,8 +1,8 @@
 body {
-  background-color: rgb(16, 120, 95);
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   text-align: center;
+  background-color: rgba(128, 128, 128, 0.808);
   color: white;
 }

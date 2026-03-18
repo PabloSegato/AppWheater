@@ -1,63 +1,90 @@
+:root {
+  --boton-buscar: #1a6fa8;
+  --boton-hover: #2185c5;
+  --texto-principal: #fff;
+  --texto-secundario: rgba(255, 255, 255, 0.4);
+  --backGround-gradient: linear-gradient(
+    135deg,
+    #0a1628 0%,
+    #0d2240 40%,
+    #0a3d62 70%,
+    #1a5276 100%
+  );
+  --backGround-input: rgba(255, 255, 255, 0.1);
+}
+
 .container {
-  max-width: 60%;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1 {
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-
-form {
+  background: var(--backGround-gradient);
+  width: 850px;
+  height: 720px;
+  border-radius: 24px;
   display: flex;
-  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-input[type="text"] {
-  flex: 1;
+.container h1 {
+  color: var(--texto-secundario);
+  align-self: center;
+}
+
+.container form button {
+  background-color: var(--backGround-gradient);
+  color: var(--texto-principal);
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: rgb(57, 54, 195);
-  color: white;
-  border: none;
-
-  border: 4px;
+  border-radius: 6px;
+  border: 1px solid #fff;
+  margin: 20px;
   cursor: pointer;
-  transition: 1s all ease;
-}
 
-button:hover {
-  background-color: rgb(93, 90, 230);
-}
-
-h2 {
-  font-size: 30px;
-}
-
-p {
-  margin-bottom: 5px;
-}
-
-img {
-  width: 80px;
-  height: auto;
-  margin-top: 10px;
-}
-
-@media (max-width: 900px) {
-  .container {
-    width: 80%;
+  &:hover {
+    background-color: var(--backGround-input);
+    transform: scale(1.1);
+    transition: all 0.5 ease;
   }
-  h1 {
-    font-size: 30px;
+}
+.container form button:active {
+  transform: scale(0.9);
+}
+.container form input {
+  background-color: var(--backGround-input);
+  border-radius: 6px;
+  padding: 5px;
+  color: var(--texto-principal);
+}
+
+.container form input:hover {
+  border: 1px solid #fff;
+  transition: all 0.5 ease;
+}
+
+.card-weather {
+  background-color: #0a3d62;
+  border-radius: 12px;
+}
+
+.contenerdor-card {
+  display: flex;
+}
+.datos-derecha {
+  padding: 10px;
+
+  p {
+    color: var(--texto-secundario);
   }
-  h2 {
-    font-size: 20px;
+}
+
+.imagen-izquierda {
+  padding: 10px;
+}
+
+.ultima-informacion {
+  padding: 10px;
+  border-left: 2px solid var(--texto-secundario);
+
+  p {
+    border-bottom: 2px solid var(--texto-secundario);
+    color: var(--texto-secundario);
   }
 }

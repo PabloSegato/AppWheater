@@ -6,5 +6,5 @@ import "./Style.css";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <WeatherApp />
-  </StrictMode>
+  </StrictMode>,
 );

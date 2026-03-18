@@ -6,19 +6,19 @@ export const WeatherApp = () => {
   const [weatherData, setWeatherData] = useState(null);
 
   const urlBase = "https://api.openweathermap.org/data/2.5/weather";
-  const API_KEY = "Your_APIKEY";
+  const API_KEY = "46d2dc6152301b055dc39571b0325d06";
   const difKelvin = 273.15; //convercion a C°
 
   const fetchWeatherData = async () => {
     try {
       const response = await fetch(
-        `${urlBase}?q=${city}&appid=${API_KEY}&lang=es`
+        `${urlBase}?q=${city}&appid=${API_KEY}&lang=es`,
       );
       const data = await response.json();
       console.log(data);
       setWeatherData(data);
     } catch (error) {
-      console.error(`Ha habido un error ${error}`);
+      throw alert(`Ha habido un error ${error}`);
     }
   };
 
@@ -44,24 +44,35 @@ export const WeatherApp = () => {
         <button type="submit">Buscar</button>
       </form>
 
-      <div>
+      <div className="card-weather">
         {weatherData && (
-          <div>
-            <h2>
-              {weatherData.name}, {weatherData.sys.country}
-            </h2>
-            <p>
-              La temperatura actual es{" "}
-              {Math.floor(weatherData.main.temp - difKelvin)}ºC
-            </p>
-            <p>
-              La condición meteorológica actual:{" "}
-              {weatherData.weather[0].description}
-            </p>
-            <img
-              src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
-              alt={weatherData.weather[0].description}
-            />
+          <div className="contenerdor-card">
+            <div className="datos-derecha">
+              <h2>
+                {weatherData.name}, {weatherData.sys.country}
+              </h2>
+              <h2>{Math.floor(weatherData.main.temp - difKelvin)}ºC</h2>
+              <p>{weatherData.weather[0].description}</p>
+            </div>
+            <div className="imagen-izquierda">
+              <img
+                src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+                alt={weatherData.weather[0].description}
+              />
+            </div>
+            <div className="ultima-informacion">
+              <span>
+                {weatherData.main.humidity}%<p>HUMEDAD</p>
+              </span>
+              <span>
+                {weatherData.main.pressure}
+                <p>PRESIÓN</p>
+              </span>
+              <span>
+                {" "}
+                {weatherData.wind.speed} km/h <p>VIENTO</p>
+              </span>
+            </div>
           </div>
         )}
       </div>
